@@ -1,2 +1,1 @@
-# Taskly
-simple task maker
+# Taskly - simple task maker
