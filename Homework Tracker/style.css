@@ -1,0 +1,210 @@
+:root{
+
+    /*color pallete*/
+    --input-color: #fafafa;
+    --base-color: #fff;
+    --text-color:black;
+    --secondary-color:#464858;
+    --accent-color:hsl(0, 0%, 90%);
+    
+
+    /*btn colors*/
+    --button-hover:#d9d9d9;
+    --delete-btn-hover:hsl(0, 90%, 90%);
+
+    /*images*/
+    --add-Btn: url('images/addBtn/light.png');
+    --delete-Btn: url('images/deleteBtn/light.png');
+    --ul-dot-unfilled: url('images/taskRadio/light/unfilled.png');
+    --ul-dot-filled: url('images/taskRadio/light/filled.png');
+}
+
+.darkMode{
+    /*color pallete*/
+    --input-color: #252525;
+    --base-color: hsl(0, 0%, 12%);
+    --text-color:hsl(0, 0%, 89%);
+    --secondary-color:hsl(0, 0%, 94%);
+    --accent-color:hsl(0, 0%, 45%);
+
+    /*btn colors*/
+    --button-hover:hsl(0, 0%, 50%);
+    --delete-btn-hover:hsl(0, 90%, 70%);
+
+    /*images*/
+    --add-Btn: url('images/addBtn/dark.png');
+    --delete-Btn: url('images/deleteBtn/dark.png');
+    --ul-dot-unfilled: url('images/taskRadio/dark/unfilled.png');
+    --ul-dot-filled: url('images/taskRadio/dark/filled.png');
+}
+
+body{
+    display:flex;
+    justify-content: center;
+    align-items: baseline;
+    background-color: var(--base-color);
+}
+
+.headingText {
+    margin-top: 10px;
+    color: var(--text-color);
+}
+
+/*top line of greeting*/
+#heading {
+    margin-top: 10px;
+    font-weight: 700; /* Bold weight */
+    font-size: 2.1rem; /* Font size */
+    line-height: 29px; /* Line height */
+    color: var(--text-color); /* Text color */
+    margin-bottom: 10px; /* Space below heading */
+    margin-top:0px;
+}
+
+#headingSubText {
+    margin-top:1.5rem;
+    font-size: 1.1rem;
+    margin-bottom: 2.5rem;
+}
+
+.container {
+    position: fixed; 
+    min-height: 78vh;
+    max-height: 1000px;  
+    width: 90%;
+    max-width: 1830px;
+    background: var(--base-color);
+    margin: 0;
+    padding: 40px 30px 200px;
+    border-radius: 8px;
+    font-family: 'Montserrat', Helvetica, sans-serif;
+}
+
+.taskContainer {
+    display: flex; /* Use flexbox for layout */
+    flex-direction: row; /* Arrange items in a row */
+    align-items: center; /* Center items vertically */
+    justify-content: center;
+    padding: 0; /* No padding */
+    width: 90%; /* Full width of container */
+    margin:0px;
+    box-sizing: border-box;
+}
+
+.custom-field { 
+    position: relative; /* For absolute positioning of placeholder */
+    font-size: 14px; /* Font size */
+    box-sizing: border-box;
+    flex: 1; /* Allow the field to grow and fill available space */
+    margin-left: 5%;
+    margin-bottom: 2%;
+    box-sizing: border-box;
+    background-color: var(--base-color);
+}
+
+.custom-field input {
+    border: none;
+    appearance: none;
+    background-color: var(--input-color);
+    padding: 12px; /* Padding inside the input field */
+    border-radius: 3px;
+    outline: none;
+    font-size: 14px; /* Font size */
+    position: relative; /* For correct layout */
+    width:110%;
+}
+
+.custom-field .placeholder {
+    position: absolute;
+    left: 1%; /* Align with the container's left padding */
+    top: 12px; /* Align with the input field's padding */
+    color: var(--secondary-color); /* Placeholder color */
+    font-size: 14px; /* Match input font size */
+    pointer-events: none; /* Prevent user interaction */
+    transition: color 0.15s ease, transform 0.15s ease; /* Smooth transition */
+}
+
+.custom-field input:valid + .placeholder,
+.custom-field input:focus + .placeholder {
+    color: transparent; /* Hide placeholder when input is valid or focused */
+    transition-delay: 0.01s; /* Delay transition */
+}
+
+#addBtn {
+    background: var(--add-Btn) no-repeat;
+}
+
+#addBtn:hover {
+    background-color: var(--button-hover);
+    transition: background-color 0.1s ease-in-out;
+    transition-delay: 0.07s;
+}
+
+#deleteBtn:hover {
+    background-color: var(--delete-btn-hover);
+    transition: background-color 0.1s ease-in-out;
+    transition-delay: 0.07s;
+}
+
+.addTask {
+    display: flex;
+    justify-content:container;
+    align-items: center;
+    padding: 10px 0;
+    flex-shrink: auto;
+    width:90%;
+    position: fixed; /* Position it at the bottom */
+    bottom: 0; /* Attach to the bottom of the viewport */
+    left: 0; /* Ensure it stretches across the page */
+}
+
+#deleteBtn{
+    background: var(--delete-Btn) no-repeat;
+}
+
+#addBtn, #deleteBtn {
+    background-position: center; 
+    background-size: 100%;       
+    width: 40px;            
+    height: 40px;      
+    border: none;               
+    border-radius: 3px; 
+    cursor: pointer; 
+    background-color: var(--accent-color);
+    transform: translateX(calc(130% + 30px));
+    margin-bottom: 2%;
+}
+
+ul {
+    list-style-type: none; /* Removes default bullets from the list */
+    display:flex;
+    flex-direction:column;
+    width:100%;
+    gap:1%;
+}
+
+ul li {
+    background-image: var(--ul-dot-unfilled);
+    background-position: left center; 
+    background-size: 1em; 
+    background-repeat: no-repeat;
+    padding-left: 2.5%; /* Adjust padding to make space for the image */
+    margin-top:1.1em;
+    color: var(--secondary-color);
+    font-size:1.3rem;
+    position: relative;
+
+}
+
+ul li:hover{
+    background-image: var(--ul-dot-filled);
+    cursor: pointer;
+    color:var(--button-hover);
+    transition: color 0.1s ease-in-out, background-image 0.1s ease-in-out;
+    opacity: 0.8;
+}
+
+ul li span {
+    text-indent: 5px; /* Adjust text position relative to the image */
+    position: relative;
+}
